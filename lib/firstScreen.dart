@@ -54,6 +54,7 @@ class _firstScreenState extends State<firstScreen> {
                       isNetwork: true,
                       fit: BoxFit.cover,
                     ),
+                    Text("Hello"),
                     uiHelper.CustomImages(
                       height: 150,
                       width: 250,
