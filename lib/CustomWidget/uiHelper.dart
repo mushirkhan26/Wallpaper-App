@@ -69,7 +69,6 @@ class uiHelper {
       ),
     );
   }
-
   static CustomFeuturedImages({
     required double height,
     required double width,
@@ -96,5 +95,50 @@ class uiHelper {
     borderRadius: BorderRadius.circular(10),
     child: Image.network(imagepath, height: height, width: width, fit: fit),);
   }
-
+  static CustomEmailText({
+    required TextEditingController controller,
+    required String text,
+    required IconData icon,
+})
+  {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      child: TextField(
+        controller: controller,
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          hintText: text,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10)
+          ),
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          label: Text("Email")
+        ),
+      ),
+    );
+  }
+  static CustomPassText({
+    required TextEditingController controller,
+    required String text,
+    required IconData icon,
+    required bool YesNo
+  })
+  {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical:10),
+      child: TextField(
+        controller: controller,
+        obscureText: YesNo,
+        keyboardType: TextInputType.visiblePassword,
+        decoration: InputDecoration(
+            hintText: text,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10)
+            ),
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            label: Text("Password")
+        ),
+      ),
+    );
+  }
 }
