@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallpapers/CustomWidget/uiHelper.dart';
 
 import '../DarkThemeWallpaper/DarkWallpaperLogoSplash.dart';
+import '../LoginWallpaper.dart';
 import 'Settings/ReportBug.dart';
 
 class setting extends StatefulWidget {
@@ -133,7 +135,36 @@ class _settingState extends State<setting> {
               ),
             ),
           ),
-
+          SizedBox(height: 10,),
+          SizedBox(
+            height: 50,
+            width: 400,
+            child: ElevatedButton(
+              onPressed: () async {
+                SharedPreferences pref=await SharedPreferences.getInstance();
+                pref.remove("login").then((Value)=>{
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginscreen()))
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                  alignment: Alignment.centerLeft,
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.logout),
+                  uiHelper.CustomText(
+                    text: "Log Out",
+                    textsize: 15,
+                    color: Colors.black,
+                  ),
+                  SizedBox(width: 200),
+                  Icon(Icons.arrow_forward_ios),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

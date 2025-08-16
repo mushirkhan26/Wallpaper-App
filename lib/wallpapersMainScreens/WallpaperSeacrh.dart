@@ -17,12 +17,18 @@ class _searchState extends State<search> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              controller: searchController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                hint: Text("Search", style: TextStyle(color: Colors.black)),
-                prefixIcon: Icon(Icons.search),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              child: TextField(
+                controller: searchController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hint: Text("Search", style: TextStyle(color: Colors.black)),
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius:BorderRadius.circular(10)
+                  )
+                ),
               ),
             ),
             SizedBox(height: 20),
